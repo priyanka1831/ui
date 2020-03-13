@@ -1,0 +1,102 @@
+package UI;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.JCheckBox;
+
+class Myframe extends JFrame implements ActionListener,ItemListener
+{
+	JLabel username;
+	JTextField unametxt;
+	JLabel userpassword;
+	JPasswordField upassword;
+	JLabel admintxt;
+	JCheckBox adminornot;
+	JButton button,resetbutton;
+	//constructor to initialize Myframe class
+	
+	Myframe()
+	{
+		setTitle("Login");
+		//create swing light weight components
+		username=new JLabel("User Name:");
+		unametxt=new JTextField(25);
+		userpassword=new JLabel("Password:");
+		upassword=new JPasswordField(8);
+		admintxt=new JLabel("Administrator");
+		adminornot=new JCheckBox();
+		button=new JButton("Submit");
+		resetbutton=new JButton("Reset");
+		
+		//set layout
+		setLayout(new FlowLayout());
+		
+		//set bounds to each components
+		username.setBounds(10,40,40,80);
+		unametxt.setBounds(10,81,100,81);
+		userpassword.setBounds(20,40,40,80);
+		upassword.setBounds(20,81,100,81);
+		admintxt.setBounds(37,38,100,85);
+		adminornot.setBounds(36,38,100,85);
+		button.setBounds(30,40,100,80);
+		resetbutton.setBounds(35,40,100,85);
+		
+		//add  components to frame
+		add(username);
+		add(unametxt);
+		add(userpassword);
+		add(upassword);
+		add(adminornot);
+		add(admintxt);
+		add(resetbutton);
+		add(button);
+		//register listener with the event source
+		resetbutton.addActionListener(this);
+		button.addActionListener(this);
+		adminornot.addItemListener(this);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent ae) {
+	if(ae.getActionCommand().equals("Reset"))
+	{
+		unametxt.setText("");
+		userpassword.setText("");
+	
+	}else if(ae.getActionCommand().equals("Submit"))
+	{	
+		
+	}
+
+}
+	
+
+@Override
+public void itemStateChanged(ItemEvent ie) {
+	// TODO Auto-generated method stub
+
+	
+}
+}
+	
+	
+	
+public  class Loginformdemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       Myframe mf=new Myframe();
+       mf.setBounds(0,0,300,500);
+       mf.setVisible(true);
+       }
+
+}
+	
